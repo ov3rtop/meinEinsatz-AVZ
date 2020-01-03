@@ -1,7 +1,7 @@
 # Realm Android
 Realm is a mobile database that runs directly inside phones, tablets or wearables. This repository holds the source code for the Java version of Realm, which currently runs only on Android.
 
-##  dependencies
+###  dependencies
 
 ```gradle
 
@@ -13,7 +13,7 @@ apply plugin: 'realm-android'
 
 ```
 
-## Realm Configuration 
+### Realm Configuration 
 
 ```java
 
@@ -37,7 +37,7 @@ public class RealmConfigs extends Application {
 
 ```
 
-## Realm Table Model 
+### Realm Table Model 
 
 ```java
 
@@ -109,13 +109,7 @@ public class Books extends RealmObject {
 
 ```
 
-## Insert Records 
-
-```java
-
-```
-
-## Display Records 
+### Insert Records 
 
 ```java
 
@@ -159,7 +153,27 @@ realmAsyncTask = myRealm.executeTransactionAsync(
 
 ```
 
-## Update Records 
+### Display Records 
+
+```java
+
+private void displayBooks() {
+
+        final RealmResults<Books> realmResults = myRealm.where(Books.class).findAll();
+
+        recyclerView = findViewById(R.id.my_book_list);
+        mLinearLayoutManager = new LinearLayoutManager(this);
+        mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(mLinearLayoutManager);
+        recyclerView.setHasFixedSize(true);
+
+        bookRecyclerview = new BookRecyclerview(this, myRealm, realmResults);
+        recyclerView.setAdapter(bookRecyclerview);
+}
+
+```
+
+### Update Records 
 
 ```java
 
@@ -184,7 +198,7 @@ private void updateBooks() {
     }
 
 ```
-## Delete Records 
+### Delete Records 
 
 ```java
 

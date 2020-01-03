@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context=".app.EditActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Realm Crud App In Android"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp">
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:text="Book Name"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_book_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_book_name_edit_text"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:text="Book Name"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_author_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_author"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_author_name_edit_text"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:text="Book Price"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_book_price_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_price"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_book_price_edit_text"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:text="Book Description"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_book_description_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_description"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_book_description_edit_text"
+            android:layout_marginTop="8dp"
+            android:onClick="editBooks"
+            android:text="Edit Book"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

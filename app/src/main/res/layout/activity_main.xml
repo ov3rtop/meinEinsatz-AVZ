@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/hinter"
     android:orientation="vertical"
     tools:context=".app.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_book_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/my_book_list"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

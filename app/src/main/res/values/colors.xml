@@ -4,12 +4,12 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>-->
 
-    <color name="colorPrimary">#F44336</color>
-    <color name="colorPrimaryDark">#D32F2F</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="primary_light">#FFCDD2</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="primary_text">#212121</color>
-    <color name="secondary_text">#757575</color>
+    <color name="primary_text">#FFFFFF</color>
+    <color name="secondary_text">#F4B549</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
 

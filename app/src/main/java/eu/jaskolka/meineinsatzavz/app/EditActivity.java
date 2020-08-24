@@ -1,4 +1,4 @@
-package com.example.realmcrudapp.app;
+package eu.jaskolka.meineinsatzavz.app;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,8 +6,8 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.realmcrudapp.R;
-import com.example.realmcrudapp.entity.Books;
+import eu.jaskolka.meineinsatzavz.R;
+import eu.jaskolka.meineinsatzavz.entity.Books;
 import com.tfb.fbtoast.FBToast;
 
 import io.realm.Realm;
@@ -15,7 +15,7 @@ import io.realm.RealmResults;
 
 public class EditActivity extends AppCompatActivity {
 
-    private EditText book_name, author_name, book_price, book_description;
+    private EditText einsatz_name, einsatzBeginn, einsatzEnde, avzStufe;
     private Realm myRealm;
     Bundle bundle;
     int position;
@@ -32,10 +32,10 @@ public class EditActivity extends AppCompatActivity {
         if (bundle != null)
             position = bundle.getInt("position");
 
-        book_name = findViewById(R.id.edit_book_name_edit_text);
-        author_name = findViewById(R.id.edit_author_name_edit_text);
-        book_price = findViewById(R.id.edit_book_price_edit_text);
-        book_description = findViewById(R.id.edit_book_description_edit_text);
+        einsatz_name = findViewById(R.id.edit_book_name_edit_text);
+        einsatzBeginn = findViewById(R.id.edit_author_name_edit_text);
+        einsatzEnde = findViewById(R.id.edit_book_price_edit_text);
+        avzStufe = findViewById(R.id.edit_book_description_edit_text);
 
         myRealm = Realm.getDefaultInstance();
 
@@ -47,10 +47,10 @@ public class EditActivity extends AppCompatActivity {
 
     private void setupViews(Books books) {
 
-        book_name.setText(books.getBookName());
-        author_name.setText(books.getAuthorName());
-        book_price.setText("" + books.getBookPrice());
-        book_description.setText(books.getBookDescription());
+        einsatz_name.setText(books.getEinsatzName());
+        einsatzBeginn.setText(books.getAuthorName());
+        einsatzEnde.setText("" + books.getBookPrice());
+        avzStufe.setText(books.getBookDescription());
     }
 
     private void updateBooks() {
@@ -59,10 +59,10 @@ public class EditActivity extends AppCompatActivity {
             @Override
             public void execute(Realm realm) {
 
-                books.setBookName(book_name.getText().toString().trim());
-                books.setAuthorName(author_name.getText().toString().trim());
-                books.setBookPrice(Double.parseDouble(book_price.getText().toString().trim()));
-                books.setBookDescription(book_description.getText().toString().trim());
+                books.setEinsatzName(einsatz_name.getText().toString().trim());
+                books.setAuthorName(einsatzBeginn.getText().toString().trim());
+                books.setBookPrice(Double.parseDouble(einsatzEnde.getText().toString().trim()));
+                books.setBookDescription(avzStufe.getText().toString().trim());
 
                 FBToast.successToast(EditActivity.this,
                         "Edit Record Successfully ..."

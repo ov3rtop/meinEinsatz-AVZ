@@ -1,4 +1,4 @@
-package com.example.realmcrudapp;
+package eu.jaskolka.meineinsatzavz;
 
 import org.junit.Test;
 

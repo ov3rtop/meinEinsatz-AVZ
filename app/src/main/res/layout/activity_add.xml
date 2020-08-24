@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    tools:context=".app.AddActivity">
+    android:background="@drawable/hinter"
+    android:padding="20dp"
+    tools:context="eu.jaskolka.meineinsatzavz.app.AddActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="367dp"
+        android:layout_height="400dp"
+        android:layout_centerHorizontal="true"
+        android:alpha="0.7"
+        android:background="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/title_tv"
@@ -13,8 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
         android:gravity="center"
-        android:text="Realm Crud App In Android"
-        android:textSize="20sp"
+        android:text="Einsatz hinzufügen"
+        android:textColor="@color/secondary_text"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
 
@@ -30,59 +41,77 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Book Name"
+            android:text="Einsatzbezeichnung"
+            android:textColor="@color/secondary_text"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/book_name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:textColor="#000000" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="136dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Author Name"
+            android:text="Einsatzbeginn"
+            android:textColor="@color/secondary_text"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/author_name_edit_text"
-            android:layout_width="match_parent"
+            android:id="@+id/einsatz_beginn_edit_text"
+            android:layout_width="137dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="Datum auswählen"
+            android:textAllCaps="true"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Book Price"
+            android:text="AVZ-Satz"
+            android:textColor="@color/secondary_text"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/book_price_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:numeric="integer"
+            android:textColor="#000000" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Book Description"
+            android:textColor="@color/secondary_text"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/book_description_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:textColor="#000000" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="addBooks"
-            android:text="Add Books"
+            android:backgroundTint="@color/secondary_text"
+            android:onClick="addEinsatz"
+            android:text="Speichern"
             android:textStyle="bold" />
 
     </LinearLayout>

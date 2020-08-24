@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/hinter"
     android:orientation="vertical"
-    tools:context=".app.MainActivity">
+    tools:context="eu.jaskolka.meineinsatzavz.app.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_book_list"

@@ -1,4 +1,4 @@
-package com.example.realmcrudapp.app;
+package eu.jaskolka.meineinsatzavz.app;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.realmcrudapp.R;
-import com.example.realmcrudapp.entity.Books;
-import com.example.realmcrudapp.ui.BookRecyclerview;
+import eu.jaskolka.meineinsatzavz.R;
+import eu.jaskolka.meineinsatzavz.entity.Books;
+import eu.jaskolka.meineinsatzavz.ui.BookRecyclerview;
 import com.tfb.fbtoast.FBToast;
 
 import io.realm.Realm;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         myRealm = Realm.getDefaultInstance();
-        displayBooks();
+        einsatzListe();
     }
 
     @Override
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             bookRecyclerview.notifyDataSetChanged();
     }
 
-    private void displayBooks() {
+    private void einsatzListe() {
 
         final RealmResults<Books> realmResults = myRealm.where(Books.class).findAll();
 
@@ -66,13 +66,13 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-            case R.id.setting_menu:
+/*            case R.id.setting_menu:
 
                 FBToast.infoToast(MainActivity.this,
                         "Setting Menu Is Clicked"
                         , FBToast.LENGTH_SHORT);
 
-                break;
+                break;*/
 
             case R.id.insert_menu:
                 startActivity(new Intent(MainActivity.this, AddActivity.class));

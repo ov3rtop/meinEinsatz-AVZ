@@ -1,4 +1,4 @@
-package com.example.realmcrudapp.database;
+package eu.jaskolka.meineinsatzavz.database;
 
 import android.app.Application;
 
@@ -12,8 +12,7 @@ public class RealmConfigs extends Application {
         super.onCreate();
 
         Realm.init(this);
-        RealmConfiguration configuration = new RealmConfiguration.Builder().name("books.realm").build();
+        RealmConfiguration configuration = new RealmConfiguration.Builder().name("einsatz.realm").build();
         Realm.setDefaultConfiguration(configuration);
-
     }
 }

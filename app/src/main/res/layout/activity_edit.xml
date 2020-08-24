@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/hinter"
     android:padding="12dp"
-    tools:context=".app.EditActivity">
+    tools:context="eu.jaskolka.meineinsatzavz.app.EditActivity">
 
 
     <TextView
@@ -13,8 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="Realm Crud App In Android"
-        android:textSize="20dp"
+        android:text="Einsatz bearbeiten ..."
+        android:textColor="@color/secondary_text"
+        android:textSize="30dp"
         android:textStyle="bold" />
 
 
@@ -32,6 +34,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="8dp"
             android:text="Book Name"
+            android:textColor="@color/secondary_text"
             android:textStyle="bold" />
 
         <EditText
@@ -40,7 +43,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_name"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:capitalize="characters"
+            android:textColor="#FAF9F9" />
 
         <TextView
             android:id="@+id/tv_author"
@@ -50,6 +55,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="8dp"
             android:text="Book Name"
+            android:textColor="@color/secondary_text"
             android:textStyle="bold" />
 
         <EditText
@@ -58,7 +64,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_author"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:textColor="#FAF9F9" />
 
         <TextView
             android:id="@+id/tv_price"
@@ -68,6 +75,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="8dp"
             android:text="Book Price"
+            android:textColor="@color/secondary_text"
             android:textStyle="bold" />
 
         <EditText
@@ -76,7 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_price"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:textColor="#FAF9F9" />
 
         <TextView
             android:id="@+id/tv_description"
@@ -86,6 +95,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="8dp"
             android:text="Book Description"
+            android:textColor="@color/secondary_text"
             android:textStyle="bold" />
 
         <EditText
@@ -94,15 +104,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_description"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:textColor="#FAF9F9" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_book_description_edit_text"
             android:layout_marginTop="8dp"
+            android:backgroundTint="@color/secondary_text"
             android:onClick="editBooks"
-            android:text="Edit Book"
+            android:text="Updaten"
+            android:textAlignment="center"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </RelativeLayout>

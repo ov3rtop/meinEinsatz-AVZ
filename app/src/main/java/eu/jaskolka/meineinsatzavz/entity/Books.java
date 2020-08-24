@@ -1,4 +1,4 @@
-package com.example.realmcrudapp.entity;
+package eu.jaskolka.meineinsatzavz.entity;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -10,7 +10,7 @@ public class Books extends RealmObject {
     @Required
     private String bookId;
     @Required
-    private String bookName;
+    private String einsatzName;
     @Required
     private String authorName;
     @Required
@@ -21,8 +21,8 @@ public class Books extends RealmObject {
     public Books() {
     }
 
-    public Books(String bookName, String authorName, Double bookPrice, String bookDescription) {
-        this.bookName = bookName;
+    public Books(String einsatzName, String authorName, Double bookPrice, String bookDescription) {
+        this.einsatzName = einsatzName;
         this.authorName = authorName;
         this.bookPrice = bookPrice;
         this.bookDescription = bookDescription;
@@ -32,12 +32,12 @@ public class Books extends RealmObject {
         return bookId;
     }
 
-    public String getBookName() {
-        return bookName;
+    public String getEinsatzName() {
+        return einsatzName;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setEinsatzName(String einsatzName) {
+        this.einsatzName = einsatzName;
     }
 
     public String getAuthorName() {

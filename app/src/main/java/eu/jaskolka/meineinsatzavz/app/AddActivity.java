@@ -1,14 +1,16 @@
-package com.example.realmcrudapp.app;
+package eu.jaskolka.meineinsatzavz.app;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.realmcrudapp.R;
-import com.example.realmcrudapp.entity.Books;
 import com.tfb.fbtoast.FBToast;
+
+import eu.jaskolka.meineinsatzavz.R;
+import eu.jaskolka.meineinsatzavz.entity.Books;
 
 import java.util.UUID;
 
@@ -17,19 +19,20 @@ import io.realm.RealmAsyncTask;
 
 public class AddActivity extends AppCompatActivity {
 
-    private EditText bookName, authorName, bookPrice, bookDescription;
+    private EditText einsatzName, einsatzBeginn, einsatzEnde, avzStufe;
     private Realm myRealm;
     private RealmAsyncTask realmAsyncTask;
-
+    DatePickerDialog picker;
+    EditText eText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        bookName = findViewById(R.id.book_name_edit_text);
-        authorName = findViewById(R.id.author_name_edit_text);
-        bookPrice = findViewById(R.id.book_price_edit_text);
-        bookDescription = findViewById(R.id.book_description_edit_text);
+        einsatzName = findViewById(R.id.book_name_edit_text);
+        einsatzBeginn = findViewById(R.id.einsatz_beginn_edit_text);
+        einsatzEnde = findViewById(R.id.book_price_edit_text);
+        avzStufe = findViewById(R.id.book_description_edit_text);
 
         myRealm = Realm.getDefaultInstance();
 
@@ -39,36 +42,36 @@ public class AddActivity extends AppCompatActivity {
 
         final String id = UUID.randomUUID().toString();
 
-        final String book_name = bookName.getText().toString().trim();
-        final String author_name = authorName.getText().toString().trim();
-        final String book_price = bookPrice.getText().toString().trim();
-        final String book_description = bookDescription.getText().toString().trim();
+        final String einsatz_name = einsatzName.getText().toString().trim();
+        final String einsatz_beginn = einsatzBeginn.getText().toString().trim();
+        final String einsatz_ende = einsatzEnde.getText().toString().trim();
+        final String avz_stufe = avzStufe.getText().toString().trim();
 
 
-        if (book_name.isEmpty()) {
+        if (einsatz_name.isEmpty()) {
             FBToast.successToast(AddActivity.this,
-                    "Enter Book Name Here ..."
+                    "Einsatzbezeichnung einfügen ..."
                     , FBToast.LENGTH_SHORT);
             return;
         }
 
-        if (author_name.isEmpty()) {
+        if (einsatz_beginn.isEmpty()) {
             FBToast.successToast(AddActivity.this,
-                    "Enter Author Name Here ..."
+                    "Einsatzbeginn erforderlich ..."
                     , FBToast.LENGTH_SHORT);
             return;
         }
 
-        if (book_price.isEmpty()) {
+        if (einsatz_ende.isEmpty()) {
             FBToast.successToast(AddActivity.this,
-                    "Enter Book Price Here ..."
+                    "Einsatzende erforderlich ..."
                     , FBToast.LENGTH_SHORT);
             return;
         }
 
-        if (book_description.isEmpty()) {
+        if (avz_stufe.isEmpty()) {
             FBToast.successToast(AddActivity.this,
-                    "Enter Book Description Here ..."
+                    "AVZ-Stufe erforderlich ..."
                     , FBToast.LENGTH_SHORT);
             return;
         }
@@ -79,10 +82,10 @@ public class AddActivity extends AppCompatActivity {
                     public void execute(Realm realm) {
 
                         Books books = realm.createObject(Books.class, id);
-                        books.setBookName(book_name);
-                        books.setAuthorName(author_name);
-                        books.setBookPrice(Double.parseDouble(book_price));
-                        books.setBookDescription(book_description);
+                        books.setEinsatzName(einsatz_name);
+                        books.setAuthorName(einsatz_beginn);
+                        books.setBookPrice(Double.parseDouble(einsatz_ende));
+                        books.setBookDescription(avz_stufe);
                     }
                 },
                 new Realm.Transaction.OnSuccess() {
@@ -90,13 +93,13 @@ public class AddActivity extends AppCompatActivity {
                     public void onSuccess() {
 
                         FBToast.successToast(AddActivity.this,
-                                "Insert Record Successfully ..."
+                                "Einsatz hinzugefügt ..."
                                 , FBToast.LENGTH_SHORT);
 
-                        bookName.setText("");
-                        authorName.setText("");
-                        bookPrice.setText("");
-                        bookDescription.setText("");
+                        einsatzName.setText("");
+                        einsatzBeginn.setText("");
+                        einsatzEnde.setText("");
+                        avzStufe.setText("");
 
                     }
                 },
@@ -106,7 +109,7 @@ public class AddActivity extends AppCompatActivity {
                     public void onError(Throwable error) {
 
                         FBToast.errorToast(AddActivity.this,
-                                "Error Is Insert Record ..."
+                                "FEHLER ..."
                                 , FBToast.LENGTH_SHORT);
                     }
                 });
@@ -114,7 +117,7 @@ public class AddActivity extends AppCompatActivity {
 
     }
 
-    public void addBooks(View view) {
+    public void addEinsatz(View view) {
         insertRecords();
     }
 

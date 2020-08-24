@@ -1,4 +1,4 @@
-package com.example.realmcrudapp.ui;
+package eu.jaskolka.meineinsatzavz.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,13 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.realmcrudapp.R;
-import com.example.realmcrudapp.app.EditActivity;
-import com.example.realmcrudapp.entity.Books;
+import eu.jaskolka.meineinsatzavz.R;
+import eu.jaskolka.meineinsatzavz.app.EditActivity;
+import eu.jaskolka.meineinsatzavz.entity.Books;
 import com.tfb.fbtoast.FBToast;
 import com.uncopt.android.widget.text.justify.JustifiedTextView;
 
@@ -39,7 +40,7 @@ public class BookRecyclerview extends RecyclerView.Adapter<BookRecyclerview.Hold
     @Override
     public Holders onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.book_list_layout, parent, false);
+        View view = inflater.inflate(R.layout.einsatz_list_layout, parent, false);
         Holders holders = new Holders(view);
         return holders;
     }
@@ -50,6 +51,15 @@ public class BookRecyclerview extends RecyclerView.Adapter<BookRecyclerview.Hold
         Books books = realmResults.get(position);
         holder.setBooks(books, position);
         holder.setListener();
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Angeklickt", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     @Override
@@ -68,7 +78,7 @@ public class BookRecyclerview extends RecyclerView.Adapter<BookRecyclerview.Hold
             super(itemView);
 
             book_name = itemView.findViewById(R.id.book_name_text_view);
-            author_name = itemView.findViewById(R.id.author_name_text_view);
+            author_name = itemView.findViewById(R.id.einsatz_beginn_text_view);
             book_price = itemView.findViewById(R.id.book_price_text_view);
             book_description = itemView.findViewById(R.id.book_description_text_view);
             editImage = itemView.findViewById(R.id.edit_image_view);
@@ -79,7 +89,7 @@ public class BookRecyclerview extends RecyclerView.Adapter<BookRecyclerview.Hold
         public void setBooks(Books books, int position) {
 
             this.position = position;
-            String name = books.getBookName();
+            String name = books.getEinsatzName();
             String author = books.getAuthorName();
             Double price = books.getBookPrice();
             String description = books.getBookDescription();

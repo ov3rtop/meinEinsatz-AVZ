@@ -48,14 +48,14 @@ public class BookRecyclerview extends RecyclerView.Adapter<BookRecyclerview.Hold
     @Override
     public void onBindViewHolder(@NonNull Holders holder, int position) {
 
-        Books books = realmResults.get(position);
+        final Books books = realmResults.get(position);
         holder.setBooks(books, position);
         holder.setListener();
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Angeklickt", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Angeklickt " + books.getBookId(), Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -10,7 +10,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="primary_text">#FFFFFF</color>
     <color name="secondary_text">#F4B549</color>
-    <color name="icons">#FFFFFF</color>
+    <color name="icons">#F4B549</color>
     <color name="divider">#BDBDBD</color>
 
 </resources>

@@ -7,19 +7,20 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import eu.jaskolka.meineinsatzavz.R;
-import eu.jaskolka.meineinsatzavz.entity.Books;
+
 import com.tfb.fbtoast.FBToast;
 
+import eu.jaskolka.meineinsatzavz.entity.Einsatz;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
 public class EditActivity extends AppCompatActivity {
 
-    private EditText einsatz_name, einsatzBeginn, einsatzEnde, avzStufe;
+    private EditText einsatzName, einsatzBeginn, einsatzEnde, einsatzStatus, avzStufe;
     private Realm myRealm;
     Bundle bundle;
     int position;
-    private Books books;
+    private Einsatz einsatz;
 
 
     @Override
@@ -32,37 +33,41 @@ public class EditActivity extends AppCompatActivity {
         if (bundle != null)
             position = bundle.getInt("position");
 
-        einsatz_name = findViewById(R.id.edit_book_name_edit_text);
-        einsatzBeginn = findViewById(R.id.edit_author_name_edit_text);
-        einsatzEnde = findViewById(R.id.edit_book_price_edit_text);
-        avzStufe = findViewById(R.id.edit_book_description_edit_text);
+        einsatzName = findViewById(R.id.einsatz_bezeichnung);
+        einsatzBeginn = findViewById(R.id.einsatz_beginn);
+        einsatzEnde = findViewById(R.id.einsatz_ende);
+        avzStufe = findViewById(R.id.avz_stufe);
+        einsatzStatus = findViewById(R.id.einsatz_status);
 
         myRealm = Realm.getDefaultInstance();
 
-        RealmResults<Books> realmResults = myRealm.where(Books.class).findAll();
-        books = realmResults.get(position);
-        setupViews(books);
+        RealmResults<Einsatz> realmResults = myRealm.where(Einsatz.class).findAll();
+        einsatz = realmResults.get(position);
+        setupViews(einsatz);
 
     }
 
-    private void setupViews(Books books) {
+    private void setupViews(Einsatz einsatz) {
 
-        einsatz_name.setText(books.getEinsatzName());
-        einsatzBeginn.setText(books.getAuthorName());
-        einsatzEnde.setText("" + books.getBookPrice());
-        avzStufe.setText(books.getBookDescription());
+        einsatzName.setText(einsatz.getEinsatzName());
+        einsatzBeginn.setText(einsatz.getEinsatzBeginn());
+        einsatzEnde.setText(einsatz.getEinsatzEnde());
+        avzStufe.setText("" + einsatz.getAvzSatz());
+        einsatzStatus.setText(einsatz.getEinsatzStatus());
+
     }
 
-    private void updateBooks() {
+    private void updateEinsatz() {
 
         myRealm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
 
-                books.setEinsatzName(einsatz_name.getText().toString().trim());
-                books.setAuthorName(einsatzBeginn.getText().toString().trim());
-                books.setBookPrice(Double.parseDouble(einsatzEnde.getText().toString().trim()));
-                books.setBookDescription(avzStufe.getText().toString().trim());
+                einsatz.setEinsatzName(einsatzName.getText().toString().trim());
+                einsatz.setEinsatzBeginn(einsatzBeginn.getText().toString().trim());
+                einsatz.setEinsatzEnde(einsatzEnde.getText().toString().trim());
+                einsatz.setAvzSatz(Double.parseDouble(avzStufe.getText().toString().trim()));
+                einsatz.setEinsatzStatus(einsatzStatus.getText().toString().trim());
 
                 FBToast.successToast(EditActivity.this,
                         "Edit Record Successfully ..."
@@ -73,8 +78,8 @@ public class EditActivity extends AppCompatActivity {
 
     }
 
-    public void editBooks(View view) {
-        updateBooks();
+    public void editEinsatz(View view) {
+        updateEinsatz();
     }
 
     @Override

@@ -14,64 +14,47 @@ public class Einsatz extends RealmObject {
     @Required
     private String einsatzName;
     @Required
-    private Date einsatzBeginn;
+    private String einsatzBeginn;
     @Required
-    private Date einsatzEnde;
-    @Required
-    private Date heranBeginn;
-    @Required
-    private Date heranEnde;
+    private String einsatzEnde;
     @Required
     private String einsatzStatus;
     @Required
     private Double avzSatz;
-    @Required
-    private Double avzSumme;
+
 
     public Einsatz() {
     }
 
+    public Einsatz(String einsatzName, String einsatzBeginn, String einsatzEnde, String einsatzStatus, Double avzSatz) {
+        this.einsatzName = einsatzName;
+        this.einsatzBeginn = einsatzBeginn;
+        this.einsatzEnde = einsatzEnde;
+        this.einsatzStatus = einsatzStatus;
+        this.avzSatz = avzSatz;
+    }
+
     public String getEinsatzId() { return einsatzId; }
 
-    public String getEinsatzName() {
-        return einsatzName;
-    }
+    public String getEinsatzName() { return einsatzName; }
 
     public void setEinsatzName(String einsatzName) {
         this.einsatzName = einsatzName;
     }
 
-    public Date getEinsatzBeginn() {
+    public String getEinsatzBeginn() {
         return einsatzBeginn;
     }
 
-    public void setEinsatzBeginn(Date einsatzBeginn) {
+    public void setEinsatzBeginn(String einsatzBeginn) {
         this.einsatzBeginn = einsatzBeginn;
     }
 
-    public Date getEinsatzEnde() {
+    public String getEinsatzEnde() {
         return einsatzEnde;
     }
 
-    public void setEinsatzEnde(Date einsatzEnde) {
-        this.einsatzEnde = einsatzEnde;
-    }
-
-    public Date getHeranBeginn() {
-        return heranBeginn;
-    }
-
-    public void setHeranBeginn(Date heranBeginn) {
-        this.heranBeginn = heranBeginn;
-    }
-
-    public Date getHeranEnde() {
-        return heranEnde;
-    }
-
-    public void setHeranEnde(Date heranEnde) {
-        this.heranEnde = heranEnde;
-    }
+    public void setEinsatzEnde(String einsatzEnde) { this.einsatzEnde = einsatzEnde; }
 
     public String getEinsatzStatus() {
         return einsatzStatus;
@@ -89,23 +72,5 @@ public class Einsatz extends RealmObject {
         this.avzSatz = avzSatz;
     }
 
-    public Double getAvzSumme() {
-        return avzSumme;
-    }
 
-    public void setAvzSumme(Double avzSumme) {
-        this.avzSumme = avzSumme;
-    }
-
-    public Einsatz(String einsatzName, Date einsatzBeginn, Date einsatzEnde, Date heranBeginn,
-                   Date heranEnde, String einsatzStatus, Double avzSatz, Double avzSumme) {
-        this.einsatzName = einsatzName;
-        this.einsatzBeginn = einsatzBeginn;
-        this.einsatzEnde = einsatzEnde;
-        this.heranBeginn = heranBeginn;
-        this.heranEnde = heranEnde;
-        this.einsatzStatus = einsatzStatus;
-        this.avzSatz = avzSatz;
-        this.avzSumme = avzSumme;
-    }
 }

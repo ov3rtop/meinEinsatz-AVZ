@@ -11,9 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import eu.jaskolka.meineinsatzavz.R;
-import eu.jaskolka.meineinsatzavz.entity.Books;
-import eu.jaskolka.meineinsatzavz.ui.BookRecyclerview;
-import com.tfb.fbtoast.FBToast;
+import eu.jaskolka.meineinsatzavz.entity.Einsatz;
+import eu.jaskolka.meineinsatzavz.ui.EinsatzRecyclerview;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -22,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Realm myRealm;
     private RecyclerView recyclerView;
-    private BookRecyclerview bookRecyclerview;
+    private EinsatzRecyclerview einsatzRecyclerview;
     private LinearLayoutManager mLinearLayoutManager;
 
     @Override
@@ -37,22 +36,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (bookRecyclerview != null)
-            bookRecyclerview.notifyDataSetChanged();
+        if (einsatzRecyclerview != null)
+            einsatzRecyclerview.notifyDataSetChanged();
     }
 
     private void einsatzListe() {
 
-        final RealmResults<Books> realmResults = myRealm.where(Books.class).findAll();
+        final RealmResults<Einsatz> realmResults = myRealm.where(Einsatz.class).findAll();
 
-        recyclerView = findViewById(R.id.my_book_list);
+        recyclerView = findViewById(R.id.meine_einsatz_liste);
         mLinearLayoutManager = new LinearLayoutManager(this);
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mLinearLayoutManager);
         recyclerView.setHasFixedSize(true);
 
-        bookRecyclerview = new BookRecyclerview(this, myRealm, realmResults);
-        recyclerView.setAdapter(bookRecyclerview);
+        einsatzRecyclerview = new EinsatzRecyclerview(this, myRealm, realmResults);
+        recyclerView.setAdapter(einsatzRecyclerview);
     }
 
     @Override
